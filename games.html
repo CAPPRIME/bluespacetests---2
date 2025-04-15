@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games - Unblocked Games Plus</title>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS file -->
+    <style>
+        /* Style the navigation bar */
+        .navbar {
+            display: flex; /* Use flexbox layout */
+            background-color: #333; /* Dark background */
+            position: fixed; /* Stay fixed at the top */
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 0; /* Padding top and bottom */
+            z-index: 1000; /* Ensure it stays on top of other content */
+        }
+
+        .nav-button {
+            color: white; /* Text color */
+            text-decoration: none; /* Remove underline */
+            padding: 15px; /* Inner space around the text */
+            transition: color 0.3s; /* Smooth color change */
+            font-size: 25px;
+            flex: 1; /* This allows buttons to take equal space within navbar */
+            text-align: center; /* Center text within buttons */
+            border-right: 1px solid #bbb; /* Border to the right */
+        }
+
+        .nav-button:last-child {
+            border-right: none; /* Remove border from the last button */
+        }
+
+        .nav-button:hover {
+            background-color: #c7c7c7; /* Button hover color */
+        }
+
+        /* Extra space for content below the fixed navbar */
+        body {
+            margin: 0; /* Remove default margin */
+            padding-top: 100px; /* Adjust based on navbar height */
+            display: flex; /* Use Flexbox body to center content */
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Align items center */
+            background-color: #f4f4f4; /* Optional: Give a light background color */
+        }
+
+        h1 {
+            text-align: center; /* Center text alignment for headers */
+            margin-bottom: 20px; /* Add space below header */
+            font-size: 2.5em; /* Increase header size for better visibility */
+        }
+
+        .button-container {
+            display: flex; /* Use Flexbox to arrange buttons */
+            flex-wrap: wrap; /* Allow wrapping of buttons */
+            justify-content: center; /* Center the buttons in the container */
+            width: 100%; /* Use full width for container */
+        }
+        
+        .game-button {
+            background-color: #5350fa; /* Button background color */
+            border: none;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            display: flex; /* Use flex on button to align items */
+            flex-direction: column; /* Stack image above text */
+            align-items: center; /* Center items horizontally */
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px; /* Reduced margin for buttons for better fit */
+            transition: background-color 0.3s, transform 0.3s; /* Include transform in the transition */
+            width: 170px; /* Set a consistent width for buttons */
+            height: auto; /* Allow height to adjust based on content */
+            font-weight: bold;
+        }
+
+        .game-button:hover {
+            background-color: #73a9ff; /* Button hover color */
+            transform: scale(1.1); /* Scale up to 110% of its original size */
+        }
+
+        .button-icon {
+            width: 125px; /* Adjust icon size */
+            height: 125px; /* Adjust height */
+            margin-bottom: 5px; /* Space between icon and text */
+            border-radius: 20px; /* Rounded corners */
+            margin-top: 5px; /* Add space below header */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html" class="nav-button">Home</a>
+        <a href="games.html" class="nav-button">Games</a>
+        <a href="proxies.html" class="nav-button">Proxies</a>
+        <a href="apps.html" class="nav-button">Apps</a>
+        <a href="chat.html" class="nav-button">Chat</a>
+    </div>
+
+    <h1>Games:</h1>
+
+    <div class="button-container">
+        <!-- Your buttons go here -->
+        <button class="game-button" onclick="openGame('https://www.kodub.com/apps/polytrack')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b522hn9/kuh89ewfu3whuiwfg.png" alt="Polytrack" class="button-icon">
+            Polytrack
+        </button>
+
+        <button class="game-button" onclick="openGame('https://bloxd.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b522hn9/Bloxd.io_Logo.jpeg" alt="Bloxd.io" class="button-icon">
+            Bloxd.io
+        </button>
+
+        <button class="game-button" onclick="openGame('https://mcraft.fun')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b522hn9/01a979c6afaf94ff03a9c65b0135aedd.png" alt="Minecraft Java" class="button-icon">
+            Minecraft Java
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://pokemonsim.com/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b522hn9/Screenshot%202025-03-07%2012.00.46%20PM.png" alt="Pokemon Card Simulator" class="button-icon">
+            Pokemon TCG Sim
+        </button>
+        
+         <button class="game-button" onclick="openGame('https://monkeymart.one/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b522hn9/kuhfew.png" alt="Monkey Mart" class="button-icon">
+            Monkey Mart
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://spacewaves.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b522hn9/space-waves.jpg" alt="Space Waves" class="button-icon">
+            Space Waves
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://classroomjq.github.io/funny-shooter-2/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b522hn9/Funny-Shooter-2.jpg" alt="Funny Shooter 2" class="button-icon">
+            Funny Shooter 2
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://rocketbotroyale2.winterpixel.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b522hn9/Screenshot%202025-03-07%2012.42.51%20PM.png" alt="Rocket Bot Royale" class="button-icon">
+            Rocket Bot Royale
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://block-post-testing.glitch.me/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b522hn9/70c2a0deacc4cf2cb86add488199c56e.jpeg" alt="Blockpost" class="button-icon">
+            Blockpost
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://territorial.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b522hn9/Teritorrial.io.png" alt="Territorial" class="button-icon">
+            Territorial
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://8ygames.github.io/play/slope-2.html')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b522hn9/slope-2.png" alt="Slope 2" class="button-icon">
+            Slope 2
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://idle-breakout.github.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b522hn9/59a42104cf89164d41ed231574452322.png" alt="Idle Breakout" class="button-icon">
+            Idle Breakout
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://fungamesnow.github.io/stickman-hook/index.html')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b522hn9/unnamed%20(1).jpg" alt="Stickman Hook" class="button-icon">
+            Stickman Hook
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://lekug.github.io/tn6pS9dCf37xAhkJv/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b522hn9/XXX_cover.png" alt="Run 3" class="button-icon">
+            Run 3
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://infinitecraftrecipes.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b522hn9/unnamed%20(1).png" alt="Infinite Craft" class="button-icon">
+            Infinite Craft
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://tunnel-rush.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b5dxwfk/Screenshot%202025-03-07%2012.48.56%20PM.png" alt="Tunnel Rush" class="button-icon">
+            Tunnel Rush
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://tunnelrush2.github.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b5dxwfk/9c5e0de489bb6f6f99e9bb0bce8341ac.jpeg" alt="Tunnel Rush 2" class="button-icon">
+            Tunnel Rush 2
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://gooberdash.winterpixel.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b5dxwfk/unnamed%20(2).jpg" alt="Goober Dash" class="button-icon">
+            Goober Dash
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://retrobowlofficial.com/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b5dxwfk/ee9ca3764ef4289a48a1ebf457ef605441ed1f35a0f2eb12707a70d609e53686.png" alt="Retro Bowl" class="button-icon">
+            Retro Bowl
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://soccer-random.github.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b5dxwfk/unnamed%20(2).png" alt="Soccer Random" class="button-icon">
+            Soccer Random
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://gamestank.github.io/play/basket-random.html')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b5dxwfk/unnamed%20(3).png" alt="Basket Random" class="button-icon">
+            Basket Random
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://eggy-car.github.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b5dxwfk/eggy-car%20(1).png" alt="Eggy Car" class="button-icon">
+            Eggy Car
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://eggy-car.github.io/detail/drift-boss.html')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b5dxwfk/baf55f009fd63dd63c760a5dcfe79615.png" alt="Drift Boss" class="button-icon">
+            Drift Boss
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://igre.games/en/bitlife-life-simulator/fullscreen/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b5dxwfk/unnamed_480.png" alt="BitLife" class="button-icon">
+            BitLife
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://yohoho.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b5dxwfk/512x512bb.jpg" alt="Yohoho.io" class="button-icon">
+            Yohoho.io
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://1v1lol.me/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b5dxwfk/unnamed%20(4).png" alt="Old 1v1.lol" class="button-icon">
+            Old 1v1.lol
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://1v1.lol/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b5dxwfk/98322a3b2be892eed31589906ffd949b68bcccc9a21ba562987965b5ec6bc6de_200.png" alt="1v1.lol" class="button-icon">
+            1v1.lol
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://plinko-web-game.netlify.app/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b5dxwfk/Screenshot%202025-03-07%2012.59.11%20PM.png" alt="Plinko" class="button-icon">
+            Plinko
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://dogeminer2.com/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b5dxwfk/kiguyfru.jpg" alt="Dogeminer 2" class="button-icon">
+            Dogeminer 2
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://crazy-cars.github.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b5dxwfk/2bc8004fcbb4387908a636e2a9d9ab4a.png" alt="Crazy Cars" class="button-icon">
+            Crazy Cars
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://www.yup7.com/embed/shell-shockers')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43b5dxwfk/original-1621960642-2ac607f273a319bd81ac2f36de28fac5-ezgif.com-webp-to-png-converter.png" alt="Shell Shockers" class="button-icon">
+            Shell Shockers
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://smashy-road.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Smashy Road" class="button-icon">
+            Smashy Road
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://block-blast.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Block Blast" class="button-icon">
+            Block Blast
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://snow-rider.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Snow Rider 3D" class="button-icon">
+            Snow Rider 3D
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://ovo-game.github.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="OvO" class="button-icon">
+            OvO
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://ducklife4.github.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Duck Life 4" class="button-icon">
+            Duck Life 4
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://medv.io/bit-planes/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Bit Planes" class="button-icon">
+            Bit Planes
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://unblocked-gamess.github.io/go/level-devil.html')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Level Devil" class="button-icon">
+            Level Devil
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://www.monkey-type.org/games/coreballiframe')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Core Ball" class="button-icon">
+            Core Ball
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://clusterrush.io//game/cluster-rush/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Cluster Rush" class="button-icon">
+            Cluster Rush
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://sandtris.com/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="SandTris" class="button-icon">
+            SandTris
+        </button>
+        
+        <button class="game-button" onclick="openGame('https://moto-x3monline.github.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Moto X3M" class="button-icon">
+            Moto X3M
+        </button>
+
+        <button class="game-button" onclick="openGame('https://gamesuperhot.github.io/play/moto-x3m-2.html')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Moto X3M 2" class="button-icon">
+            Moto X3M 2
+        </button>
+
+        <button class="game-button" onclick="openGame('https://motox3m.gitlab.io/moto-x3m-3.html')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Moto X3M 3" class="button-icon">
+            Moto X3M 3
+        </button>
+
+        <button class="game-button" onclick="openGame('https://iogames.onl/baseball-bros')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Baseball Bros" class="button-icon">
+            Baseball Bros
+        </button>
+
+        <button class="game-button" onclick="openGame('https://basketbros.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Basketball Bros" class="button-icon">
+            Basketball Bros
+        </button>
+
+        <button class="game-button" onclick="openGame('https://soccerbros.gg/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Soccer Bros" class="button-icon">
+            Soccer Bros
+        </button>
+
+        <button class="game-button" onclick="openGame('https://footballbrosgame.org/online/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Football Bros" class="button-icon">
+            Football Bros
+        </button>
+
+        <button class="game-button" onclick="openGame('https://www.easyfun.gg/cloud-games/roblox.html')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Roblox" class="button-icon">
+            Roblox
+        </button>
+
+        <button class="game-button" onclick="openGame('https://www.easyfun.gg/cloud-games/brawl-stars.html')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Brawl Stars" class="button-icon">
+            Brawl Stars
+        </button>
+
+        <button class="game-button" onclick="openGame('https://www.easyfun.gg/cloud-games/stumble-guys-cloud-online.html')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Stumble Guys" class="button-icon">
+            Stumble Guys
+        </button>
+
+        <button class="game-button" onclick="openGame('https://www.easyfun.gg/cloud-games/among-us.html')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Among Us" class="button-icon">
+            Among Us
+        </button>
+
+        <button class="game-button" onclick="openGame('https://burritobison.gitlab.io/file/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Burrito Bison" class="button-icon">
+            Burrito Bison
+        </button>
+
+        <button class="game-button" onclick="openGame('https://geometrygame.org/game/geometry-dash-lite/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Geometry Dash" class="button-icon">
+            Geometry Dash
+        </button>
+
+        <button class="game-button" onclick="openGame('https://webglmath.github.io/cookie-clicker/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Cookie Clicker" class="button-icon">
+            Cookie Clicker
+        </button>
+
+        <button class="game-button" onclick="openGame('https://cpsgames.org/splash/tomb-of-the-mask')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Tomb of the Mask" class="button-icon">
+            Tomb of the Mask
+        </button>
+
+        <button class="game-button" onclick="openGame('https://gswitch3.github.io/play/rooftop-snipers.html')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Rooftop Snipers" class="button-icon">
+            Rooftop Snipers
+        </button>
+
+        <button class="game-button" onclick="openGame('https://jetpack-joyride.github.io/')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Jetpack Joyride" class="button-icon">
+            Jetpack Joyride
+        </button>
+
+        <button class="game-button" onclick="openGame('https://thebackroomsgame.github.io/granny')">
+            <img src="https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" alt="Granny" class="button-icon">
+            Granny
+        </button>
+        
+    </div>
+
+    <script>
+        function openGame(url) {
+            var win = window.open();
+            var iframe = win.document.createElement('iframe');
+            iframe.style.position = "absolute";
+            iframe.style.top = "0";
+            iframe.style.left = "0";
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+            iframe.src = url;
+            
+            // Set allowfullscreen attribute and allow fullscreen access
+            iframe.setAttribute("allowfullscreen", "true");
+            iframe.setAttribute("allow", "fullscreen");
+            
+            win.document.body.appendChild(iframe);
+        }
+    </script>
+
+    <!-- 100% privacy-first analytics -->
+    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+</body>
+</html>
