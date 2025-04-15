@@ -46,21 +46,23 @@
             width: 30px; /* Set a fixed width for the icon */
             transition: transform 0.3s ease; /* Smooth expansion of the image */
             margin-right: 10px; /* Space between icon and text */
+            position: relative; /* Allows for adjustment */
+            left: 0; /* Default position */
         }
 
         .nav-button:hover img {
-            transform: scale(1.2); /* Scale the image on hover */
+            transform: translateX(-10px); /* Move the image to the left on hover */
         }
 
         .nav-button .text {
             opacity: 0; /* Initially hide the text */
-            transform: translateX(-20px); /* Move text to the left initially */
+            transform: translateX(10px); /* Move text slightly to the right initially */
             transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Smooth transition */
         }
 
         .nav-button:hover .text {
             opacity: 1; /* Show the text on hover */
-            transform: translateX(0); /* Move text to normal position */
+            transform: translateX(0); /* Move text back to its normal position */
         }
 
         /* Extra space for content below the fixed navbar */
