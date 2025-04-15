@@ -52,17 +52,15 @@
             transform: scale(1.2); /* Scale the image on hover */
         }
 
-        .nav-button:hover .nav-content {
-            transform: translateY(-5px); /* Move the entire content up on hover */
-        }
-
         .nav-button .text {
-            opacity: 1; /* Initially show the text */
-            transition: opacity 0.3s ease-out; /* Smooth transition */
+            opacity: 0; /* Initially hide the text */
+            transform: translateX(-20px); /* Move text to the left initially */
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Smooth transition */
         }
 
         .nav-button:hover .text {
-            opacity: 1; /* Keep the text visible on hover */
+            opacity: 1; /* Show the text on hover */
+            transform: translateX(0); /* Move text to normal position */
         }
 
         /* Extra space for content below the fixed navbar */
@@ -92,7 +90,6 @@
         .start-button:hover {
             background-color: #73a9ff; /* Button hover color */
         }
-
     </style>
 </head>
 <body>
