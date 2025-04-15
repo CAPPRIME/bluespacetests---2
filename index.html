@@ -19,14 +19,16 @@
         }
 
         .nav-button {
+            position: relative; /* Set position relative to contain child elements */
             color: white; /* Text color */
             text-decoration: none; /* Remove underline */
             padding: 15px; /* Inner space around the text */
-            transition: color 0.3s; /* Smooth color change */
+            transition: background-color 0.3s; /* Smooth background color change */
             font-size: 25px;
             flex: 1; /* This allows buttons to take equal space within navbar */
             text-align: center; /* Center text within buttons */
             border-right: 1px solid #bbb; /* Border to the right */
+            overflow: hidden; /* Ensure overflow is hidden */
         }
 
         .nav-button:last-child {
@@ -37,6 +39,27 @@
             background-color: #c7c7c7; /* Button hover color */
         }
 
+        .nav-button img {
+            width: 30px; /* Set a fixed width for the icon */
+            transition: transform 0.3s ease; /* Smooth expansion of the image */
+            margin-right: 10px; /* Space between icon and text */
+        }
+
+        .nav-button:hover img {
+            transform: scale(1.5); /* Scale the image on hover */
+        }
+
+        .nav-button .text {
+            opacity: 0; /* Hide the text initially */
+            transform: translateX(-20px); /* Move text to the left */
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Smooth transition */
+        }
+
+        .nav-button:hover .text {
+            opacity: 1; /* Show the text on hover */
+            transform: translateX(0); /* Bring text back to normal position */
+        }
+
         /* Extra space for content below the fixed navbar */
         body {
             margin-top: 100px; /* Adjust this value based on navbar height */
@@ -45,7 +68,7 @@
         h1{
             font-size: 3.5em; /* Increase header size for better visibility */
         }
-        
+
         .start-button {
             background-color: #5350fa; /* Button background color */
             border: none;
@@ -60,33 +83,42 @@
             transition: background-color 0.3s;
             font-size: 1.5em; /* Increase font size for better visibility */
         }
-        
-         .start-button:hover {
+
+        .start-button:hover {
             background-color: #73a9ff; /* Button hover color */
         }
-        
-        
+
     </style>
 </head>
 <body>
     <div class="navbar">
-        <a href="index.html" class="nav-button">Home</a>
-        <a href="games.html" class="nav-button">Games</a>
-        <a href="proxies.html" class="nav-button">Proxies</a>
-        <a href="apps.html" class="nav-button">Apps</a>
-        <a href="chat.html" class="nav-button">Chat</a>
+        <a href="index.html" class="nav-button">
+            <img src="home-icon.png" alt="Home"> <span class="text">Home</span>
+        </a>
+        <a href="games.html" class="nav-button">
+            <img src="games-icon.png" alt="Games"> <span class="text">Games</span>
+        </a>
+        <a href="proxies.html" class="nav-button">
+            <img src="proxies-icon.png" alt="Proxies"> <span class="text">Proxies</span>
+        </a>
+        <a href="apps.html" class="nav-button">
+            <img src="apps-icon.png" alt="Apps"> <span class="text">Apps</span>
+        </a>
+        <a href="chat.html" class="nav-button">
+            <img src="chat-icon.png" alt="Chat"> <span class="text">Chat</span>
+        </a>
     </div>
 
     <div class="main"></div>
-    
+
     <h1>Unblocked Games Plus - Netlify Edition</h1>
-    
+
     <button class="start-button" onclick="window.location.href = 'https://bluespace118.vercel.app/games.html';"><b>Start Playing!</b></button>
     
     <button class="start-button" onclick="window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSfgADqtFaOPrWkNWXOOTaNZXERyIL2Nmqwb0RrP7yBMGeHVSg/viewform?usp=header';"><b>Request Games</b></button>
-    
+
     <h2>New Update! GoGuardian can't see the games now! Bug fixes and new games!</h2>
-    
+
     <h2>Thanks to our partner, the CAP_PRIME owner.</h2>
 
     <script>
