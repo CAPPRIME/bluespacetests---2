@@ -49,7 +49,7 @@
         }
 
         .nav-button:hover img {
-            transform: scale(1.5); /* Scale the image on hover */
+            transform: scale(1.2); /* Scale the image on hover */
         }
 
         .nav-button:hover .nav-content {
@@ -57,14 +57,12 @@
         }
 
         .nav-button .text {
-            opacity: 0; /* Hide the text initially */
-            transform: translateX(-20px); /* Move text to the left */
-            transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Smooth transition */
+            opacity: 1; /* Initially show the text */
+            transition: opacity 0.3s ease-out; /* Smooth transition */
         }
 
         .nav-button:hover .text {
-            opacity: 1; /* Show the text on hover */
-            transform: translateX(0); /* Bring text back to normal position */
+            opacity: 1; /* Keep the text visible on hover */
         }
 
         /* Extra space for content below the fixed navbar */
