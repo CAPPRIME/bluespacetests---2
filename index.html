@@ -19,16 +19,14 @@
         }
 
         .nav-button {
-            position: relative; /* Set position relative to contain child elements */
+            flex: 1; /* This allows buttons to take equal space within navbar */
             color: white; /* Text color */
             text-decoration: none; /* Remove underline */
             padding: 10px; /* Inner space around the text */
-            transition: background-color 0.3s; /* Smooth background color change */
-            font-size: 25px;
-            flex: 1; /* This allows buttons to take equal space within navbar */
+            position: relative; /* Useful for absolute positioning of children */
             text-align: center; /* Center text within buttons */
-            border-right: 1px solid #bbb; /* Border to the right */
             overflow: hidden; /* Ensure overflow is hidden */
+            transition: background-color 0.3s; /* Smooth background color change */
         }
 
         .nav-button:last-child {
@@ -39,8 +37,8 @@
             display: flex; /* Use flexbox for alignment */
             align-items: center; /* Center items vertically */
             justify-content: center; /* Center items horizontally */
-            transition: transform 0.3s ease; /* Make the whole content move */
-            height: 100%; /* Align content correctly */
+            transition: transform 0.3s ease; /* Transition for the content movement */
+            height: 100%; /* Ensures the full height is utilized */
         }
 
         .nav-button img {
