@@ -63,8 +63,10 @@
             opacity: 0; /* Initially hide the text */
             transform: translateX(10px); /* Move text slightly to the right initially */
             transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Smooth transition */
+            line-height: 30px; /* Set line-height to match icon height for vertical alignment */
+            margin: 0; /* Remove default margins to ensure perfect vertical alignment */
         }
-
+            
         .nav-button:hover .text {
             opacity: 1; /* Show the text on hover */
             transform: translateX(0); /* Move text back to its normal position */
