@@ -1,289 +1,273 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Unblocked Games Plus - Netlify Edition</title>
-      <link rel="stylesheet" href="styles.css"> <!-- External CSS file -->
-      <style>
-          /* Style the navigation bar */
-          .navbar {
-              display: flex; /* Use flexbox layout */
-              background-color: #333; /* Dark background */
-              position: fixed; /* Stay fixed at the top */
-              top: 0;
-              left: 0;
-              width: 100%;
-              padding: 5px 0; /* Reduced padding for a thinner navbar */
-              z-index: 1000; /* Ensure it stays on top of other content */
-              justify-content: space-between; /* Align items to the left */
-              border-bottom-left-radius: 25px; /* Adjust the radius value as needed */
-              border-bottom-right-radius: 25px; /* Adjust the radius value as needed */
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Unblocked Games Plus - Netlify Edition</title>
+       <link rel="stylesheet" href="styles.css"> <!-- External CSS file -->
+       <style>
+           /* Style the navigation bar */
+           .navbar {
+               display: flex; /* Use flexbox layout */
+               background-color: #333; /* Dark background */
+               position: fixed; /* Stay fixed at the top */
+               top: 0;
+               left: 0;
+               width: 100%;
+               padding: 5px 0; /* Reduced padding for a thinner navbar */
+               z-index: 1000; /* Ensure it stays on top of other content */
+               justify-content: space-between; /* Align items to the left */
+               border-bottom-left-radius: 25px; /* Adjust the radius value as needed */
+               border-bottom-right-radius: 25px; /* Adjust the radius value as needed */
+           }
+ 
+           .nav-button {
+               flex: none; /* This allows buttons to take equal space within navbar */
+               color: white; /* Text color */
+               text-decoration: none; /* Remove underline */
+               padding: 5px 10px; /* Reduced padding for thinner buttons */
+               position: relative; /* Useful for absolute positioning of children */
+               text-align: center; /* Center text within buttons */
+               overflow: hidden; /* Ensure overflow is hidden */
+               transition: background-color 0.3s; /* Smooth background color change */
+               margin-bottom: 1px; /* Adjust this value to lift buttons higher */
+           }
+ 
+           .first-button {
+               margin-left: 35px; /* Add desired space between navbar and first button */
+           }
+ 
+           .nav-button:last-child {
+               border-right: none; /* Remove border from the last button */
+           }
+ 
+           .nav-content {
+               display: flex; /* Use flexbox for alignment */
+               align-items: center; /* Center items vertically */
+               justify-content: flex-start; /* Align items to the left horizontally */
+               transition: transform 0.3s ease; /* Transition for the content movement */
+               height: 100%; /* Ensures the full height is utilized */
+           }
+ 
+           .nav-button img {
+               width: 30px; /* Set a fixed width for the icon */
+               transition: transform 0.3s ease; /* Smooth expansion of the image */
+               margin-right: 1px; /* Space between icon and text */
+               margin-bottom: 19px; /* Adjusts the icon position for perfection */
+           }
+ 
+           .nav-button:hover img {
+               transform: translateX(-10px); /* Move the image to the left on hover */
+           }
+ 
+           .nav-button .text {
+               opacity: 0; /* Initially hide the text */
+               transform: translateX(10px); /* Move text slightly to the right initially */
+               transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Smooth transition */
+               line-height: 30px; /* Set a line height that matches the height of your icon */
+               margin: 0; /* Remove default margins to ensure perfect vertical alignment */
+               font-size: 20px; /* Set a font size compatible with your design */
+               display: flex; /* Use flex for the text to center vertically */
+               align-items: center; /* Centers text vertically within its container */
+           }
+ 
+           .nav-button:hover .text {
+               opacity: 1; /* Show the text on hover */
+               transform: translateX(0); /* Move text back to its normal position */
+           }
+ 
+           .search-container {
+             position: relative; /* Ensure the dropdown is absolute within this container */
+             width: 300px; /* Set the width to your desired size to make it larger */
+             margin: 0 auto; /* Center the search container horizontally */
+             margin-top: 15px;
+         }
+ 
+         .search-input {
+             width: 100%; /* Make the search input take the full width of the container */
+             padding: 15px; /* Increase padding for a larger input */
+             font-size: 16px; /* Increase font size for better visibility */
+             border: 1px solid #ccc; /* Add a border for better visibility */
+             border-radius: 5px; /* Rounded corners */
+         }
+ 
+           /* Extra space for content below the fixed navbar */
+           body {
+               margin-top: 100px; /* Adjust this value based on navbar height */
+           }
+ 
+           h1 {
+               font-size: 3.5em; /* Increase header size for better visibility */
+           }
+ 
+           .start-button {
+               background-color: #5350fa; /* Button background color */
+               border: none;
+               color: white;
+               padding: 15px 30px; /* Increase padding for a larger button */
+               text-decoration: none;
+               display: inline-flex; /* Use flex on button to align items */
+               align-items: center; /* Center items */
+               border-radius: 8px; /* Increase border radius for rounded corners */
+               cursor: pointer;
+               margin-bottom: 20px; /* Space below the button */
+               transition: background-color 0.3s;
+               font-size: 1.5em; /* Increase font size for better visibility */
+           }
+ 
+           .start-button:hover {
+               background-color: #73a9ff; /* Button hover color */
+           }
+        /* Dropdown Styles */
+          .dropdown {
+              position: absolute;
+              background-color: white;
+              border: 1px solid #ccc;
+              z-index: 1000;
+              width: 250px; /* Match input width */
+              max-height: 200px; /* Set max height for the dropdown */
+              overflow-y: auto; /* Allow scrolling if content overflows */
+              display: none; /* Hidden by default */
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+              margin-top: 5px; /* Space between the dropdown and search input */
           }
  
-          .nav-button {
-              flex: none; /* This allows buttons to take equal space within navbar */
-              color: white; /* Text color */
-              text-decoration: none; /* Remove underline */
-              padding: 5px 10px; /* Reduced padding for thinner buttons */
-              position: relative; /* Useful for absolute positioning of children */
-              text-align: center; /* Center text within buttons */
-              overflow: hidden; /* Ensure overflow is hidden */
-              transition: background-color 0.3s; /* Smooth background color change */
-              margin-bottom: 1px; /* Adjust this value to lift buttons higher */
-          }
- 
-          .first-button {
-              margin-left: 35px; /* Add desired space between navbar and first button */
-          }
- 
-          .nav-button:last-child {
-              border-right: none; /* Remove border from the last button */
-          }
- 
-          .nav-content {
-              display: flex; /* Use flexbox for alignment */
-              align-items: center; /* Center items vertically */
-              justify-content: flex-start; /* Align items to the left horizontally */
-              transition: transform 0.3s ease; /* Transition for the content movement */
-              height: 100%; /* Ensures the full height is utilized */
-          }
- 
-          .nav-button img {
-              width: 30px; /* Set a fixed width for the icon */
-              transition: transform 0.3s ease; /* Smooth expansion of the image */
-              margin-right: 1px; /* Space between icon and text */
-              margin-bottom: 19px; /* Adjusts the icon position for perfection */
-          }
- 
-          .nav-button:hover img {
-              transform: translateX(-10px); /* Move the image to the left on hover */
-          }
- 
-          .nav-button .text {
-              opacity: 0; /* Initially hide the text */
-              transform: translateX(10px); /* Move text slightly to the right initially */
-              transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Smooth transition */
-              line-height: 30px; /* Set a line height that matches the height of your icon */
-              margin: 0; /* Remove default margins to ensure perfect vertical alignment */
-              font-size: 20px; /* Set a font size compatible with your design */
-              display: flex; /* Use flex for the text to center vertically */
-              align-items: center; /* Centers text vertically within its container */
-          }
- 
-          .nav-button:hover .text {
-              opacity: 1; /* Show the text on hover */
-              transform: translateX(0); /* Move text back to its normal position */
-          }
- 
-          .search-container {
-            position: relative; /* Ensure the dropdown is absolute within this container */
-            width: 300px; /* Set the width to your desired size to make it larger */
-            margin: 0 auto; /* Center the search container horizontally */
-            margin-top: 15px;
-        }
-
-        .search-input {
-            width: 100%; /* Make the search input take the full width of the container */
-            padding: 15px; /* Increase padding for a larger input */
-            font-size: 16px; /* Increase font size for better visibility */
-            border: 1px solid #ccc; /* Add a border for better visibility */
-            border-radius: 5px; /* Rounded corners */
-        }
- 
-          /* Extra space for content below the fixed navbar */
-          body {
-              margin-top: 100px; /* Adjust this value based on navbar height */
-          }
- 
-          h1 {
-              font-size: 3.5em; /* Increase header size for better visibility */
-          }
- 
-          .start-button {
-              background-color: #5350fa; /* Button background color */
-              border: none;
-              color: white;
-              padding: 15px 30px; /* Increase padding for a larger button */
-              text-decoration: none;
-              display: inline-flex; /* Use flex on button to align items */
-              align-items: center; /* Center items */
-              border-radius: 8px; /* Increase border radius for rounded corners */
-              cursor: pointer;
-              margin-bottom: 20px; /* Space below the button */
-              transition: background-color 0.3s;
-              font-size: 1.5em; /* Increase font size for better visibility */
-          }
- 
-          .start-button:hover {
-              background-color: #73a9ff; /* Button hover color */
-          }
-       /* Dropdown Styles */
-         .dropdown {
-            position: absolute; /* Position the dropdown absolutely */
-            background-color: white;
-            border: 1px solid #ccc;
-            z-index: 1000;
-            width: 100%; /* Match input width */
-            max-height: 200px; /* Set max height for the dropdown */
-            overflow-y: auto; /* Allow scrolling if content overflows */
-            display: none; /* Hidden by default */
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 5px; /* Space between the dropdown and search input */
-        }
-
           .dropdown-item {
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            padding: 10px;
-            padding: 10pt;
-            cursor:pointer;
-            display:flex;
-            align-items:center;
-            padding-left: 10pt;
-            padding-right: 10pt;
-            padding-top: 10pt;
-            padding-bottom: 10pt;
-            padding: 10pt;
-            width: 30pt;
-            height: 30pt;
-            background-color: #ccc;
-            border: 1pt solid #ccc;
-            border-radius: 25pt;
-  }
-  
-          .dropdown-item:hover{
-            background-color:#f2f2f2;
-            border: 1pt solid #ccc;
-  }
-      </style>
-  </head>
-  <body>
-      <div class="navbar">
-          <a href="index.html" class="nav-button first-button">
-              <div class="nav-content">
-                  <img src="https://assets.onecompiler.app/4388fmqsk/43ex5fa3s/image.png" alt="Home">
-                  <span class="text">Home</span>
-              </div>
-          </a>
-          <a href="games.html" class="nav-button">
-              <div class="nav-content">
-                  <img src="https://assets.onecompiler.app/4388fmqsk/43ex5fa3s/image%20(1).png" alt="Games">
-                  <span class="text">Games</span>
-              </div>
-          </a>
-          <a href="proxies.html" class="nav-button">
-              <div class="nav-content">
-                  <img src="https://assets.onecompiler.app/4388fmqsk/43ex5fa3s/image%20(3).png" alt="Proxies">
-                  <span class="text">Proxies</span>
-              </div>
-          </a>
-          <a href="apps.html" class="nav-button">
-              <div class="nav-content">
-                  <img src="https://assets.onecompiler.app/4388fmqsk/43ex5fa3s/image%20(2).png" alt="Apps">
-                  <span class="text">Apps</span>
-              </div>
-          </a>
-          <a href="chat.html" class="nav-button">
-              <div class="nav-content">
-                  <img src="https://assets.onecompiler.app/4388fmqsk/43ex5fa3s/image%20(4).png" alt="Chat">
-                  <span class="text">Chat</span>
-              </div>
-          </a>
-          <a href="quests.html" class="nav-button">
-              <div class="nav-content">
-                  <img src="https://assets.onecompiler.app/4388fmqsk/43ezmvq78/image%20(5).png" alt="Quests">
-                  <span class="text">Quests</span>
-              </div>
-          </a>
-          <a href="settings.html" class="nav-button">
-              <div class="nav-content">
-                  <img src="https://assets.onecompiler.app/4388fmqsk/43ezmvq78/image%20(6).png" alt="Settings">
-                  <span class="text">Settings</span>
-              </div>
-          </a>
-          <div class="search-container">
-             <input type="text" class="search-input" id="searchInput" placeholder="Search games/apps..." oninput="filterGames()">
-             <div class="dropdown" id="dropdown"></div> 
-         </div>
-     </div>
+              padding: 10px;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+          }
  
-      <div class="main"></div>
+          .dropdown-item:hover {
+              background-color: #f1f1f1; /* Change background on hover */
+          }
+       </style>
+   </head>
+   <body>
+       <div class="navbar">
+           <a href="index.html" class="nav-button first-button">
+               <div class="nav-content">
+                   <img src="https://assets.onecompiler.app/4388fmqsk/43ex5fa3s/image.png" alt="Home">
+                   <span class="text">Home</span>
+               </div>
+           </a>
+           <a href="games.html" class="nav-button">
+               <div class="nav-content">
+                   <img src="https://assets.onecompiler.app/4388fmqsk/43ex5fa3s/image%20(1).png" alt="Games">
+                   <span class="text">Games</span>
+               </div>
+           </a>
+           <a href="proxies.html" class="nav-button">
+               <div class="nav-content">
+                   <img src="https://assets.onecompiler.app/4388fmqsk/43ex5fa3s/image%20(3).png" alt="Proxies">
+                   <span class="text">Proxies</span>
+               </div>
+           </a>
+           <a href="apps.html" class="nav-button">
+               <div class="nav-content">
+                   <img src="https://assets.onecompiler.app/4388fmqsk/43ex5fa3s/image%20(2).png" alt="Apps">
+                   <span class="text">Apps</span>
+               </div>
+           </a>
+           <a href="chat.html" class="nav-button">
+               <div class="nav-content">
+                   <img src="https://assets.onecompiler.app/4388fmqsk/43ex5fa3s/image%20(4).png" alt="Chat">
+                   <span class="text">Chat</span>
+               </div>
+           </a>
+           <a href="quests.html" class="nav-button">
+               <div class="nav-content">
+                   <img src="https://assets.onecompiler.app/4388fmqsk/43ezmvq78/image%20(5).png" alt="Quests">
+                   <span class="text">Quests</span>
+               </div>
+           </a>
+           <a href="settings.html" class="nav-button">
+               <div class="nav-content">
+                   <img src="https://assets.onecompiler.app/4388fmqsk/43ezmvq78/image%20(6).png" alt="Settings">
+                   <span class="text">Settings</span>
+               </div>
+           </a>
+           <div class="search-container">
+              <input type="text" class="search-input" id="searchInput" placeholder="Search games/apps..." oninput="filterGames()">
+              <div class="dropdown" id="dropdown"></div> 
+          </div>
+      </div>
  
-      <h1>Unblocked Games Plus - Netlify Edition</h1>
+       <div class="main"></div>
  
-      <button class="start-button" onclick="window.location.href = 'https://bluespace118.vercel.app/games.html';"><b>Start Playing!</b></button>
+       <h1>Unblocked Games Plus - Netlify Edition</h1>
  
-      <button class="start-button" onclick="window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSfgADqtFaOPrWkNWXOOTaNZXERyIL2Nmqwb0RrP7yBMGeHVSg/viewform?usp=header';"><b>Request Games</b></button>
+       <button class="start-button" onclick="window.location.href = 'https://bluespace118.vercel.app/games.html';"><b>Start Playing!</b></button>
  
-      <h2>New Update! GoGuardian can't see the games now! Bug fixes and new games!</h2>
+       <button class="start-button" onclick="window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSfgADqtFaOPrWkNWXOOTaNZXERyIL2Nmqwb0RrP7yBMGeHVSg/viewform?usp=header';"><b>Request Games</b></button>
  
-      <h2>Thanks to our partner, the CAP_PRIME owner.</h2>
+       <h2>New Update! GoGuardian can't see the games now! Bug fixes and new games!</h2>
  
-      <script>
-         const games = [
-             { name: "Polytrack", url: "https://www.kodub.com/apps/polytrack", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/kuh89ewfu3whuiwfg.png" },
-             { name: "Bloxd.io", url: "https://bloxd.io/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/Bloxd.io_Logo.jpeg" },
-             { name: "Minecraft Java", url: "https://mcraft.fun", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/01a979c6afaf94ff03a9c65b0135aedd.png" },
-             { name: "Pokemon TCG Sim", url: "https://pokemonsim.com/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/Screenshot%202025-03-07%2012.00.46%20PM.png" },
-             { name: "Monkey Mart", url: "https://monkeymart.one/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/kuhfew.png" },
-             { name: "Space Waves", url: "https://spacewaves.io/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/space-waves.jpg" },
-             { name: "Funny Shooter 2", url: "https://classroomjq.github.io/funny-shooter-2/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/Funny-Shooter-2.jpg" },
-             { name: "Rocket Bot Royale", url: "https://rocketbotroyale2.winterpixel.io/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/Screenshot%202025-03-07%2012.42.51%20PM.png" },
-             // Add all other games in a similar format...
-             { name: "Granny", url: "https://thebackroomsgame.github.io/granny", img: "https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" }
-         ];
+       <h2>Thanks to our partner, the CAP_PRIME owner.</h2>
  
-         function filterGames() {
-             const input = document.getElementById('searchInput').value.toLowerCase();
-             const dropdown = document.getElementById('dropdown');
+       <script>
+          const games = [
+              { name: "Polytrack", url: "https://www.kodub.com/apps/polytrack", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/kuh89ewfu3whuiwfg.png" },
+              { name: "Bloxd.io", url: "https://bloxd.io/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/Bloxd.io_Logo.jpeg" },
+              { name: "Minecraft Java", url: "https://mcraft.fun", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/01a979c6afaf94ff03a9c65b0135aedd.png" },
+              { name: "Pokemon TCG Sim", url: "https://pokemonsim.com/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/Screenshot%202025-03-07%2012.00.46%20PM.png" },
+              { name: "Monkey Mart", url: "https://monkeymart.one/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/kuhfew.png" },
+              { name: "Space Waves", url: "https://spacewaves.io/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/space-waves.jpg" },
+              { name: "Funny Shooter 2", url: "https://classroomjq.github.io/funny-shooter-2/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/Funny-Shooter-2.jpg" },
+              { name: "Rocket Bot Royale", url: "https://rocketbotroyale2.winterpixel.io/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/Screenshot%202025-03-07%2012.42.51%20PM.png" },
+              // Add all other games in a similar format...
+              { name: "Granny", url: "https://thebackroomsgame.github.io/granny", img: "https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" }
+          ];
  
-             // Clear previous results
-             dropdown.innerHTML = '';
+          function filterGames() {
+              const input = document.getElementById('searchInput').value.toLowerCase();
+              const dropdown = document.getElementById('dropdown');
  
-             if (input) {
-                 const filteredGames = games.filter(game => game.name.toLowerCase().includes(input));
+              // Clear previous results
+              dropdown.innerHTML = '';
  
-                 if (filteredGames.length > 0) {
-                     filteredGames.forEach(game => {
-                         const item = document.createElement('div');
-                         item.className = 'dropdown-item';
-                         item.innerHTML = `<img src="${game.img}" alt="${game.name}" class="button-icon">${game.name}`;
-                         item.onclick = () => openGame(game.url); 
-                         dropdown.appendChild(item);
-                     });
-                     dropdown.style.display = 'block'; 
-                 } else {
-                     dropdown.style.display = 'none'; 
-                 }
-             } else {
-                 dropdown.style.display = 'none'; 
-             }
-         }
+              if (input) {
+                  const filteredGames = games.filter(game => game.name.toLowerCase().includes(input));
  
-         // Modified openGame function
-         function openGame(url) {
-             var win = window.open();
-             var iframe = win.document.createElement('iframe');
-             iframe.style.position = "absolute";
-             iframe.style.top = "0";
-             iframe.style.left = "0";
-             iframe.style.width = "100%";
-             iframe.style.height = "100%";
-             iframe.style.border = "none";
-             iframe.src = url;
+                  if (filteredGames.length > 0) {
+                      filteredGames.forEach(game => {
+                          const item = document.createElement('div');
+                          item.className = 'dropdown-item';
+                          item.innerHTML = `<img src="${game.img}" alt="${game.name}" class="button-icon">${game.name}`;
+                          item.onclick = () => openGame(game.url); 
+                          dropdown.appendChild(item);
+                      });
+                      dropdown.style.display = 'block'; 
+                  } else {
+                      dropdown.style.display = 'none'; 
+                  }
+              } else {
+                  dropdown.style.display = 'none'; 
+              }
+          }
  
-             // Set allowfullscreen attribute and allow fullscreen access
-             iframe.setAttribute("allowfullscreen", "true");
-             iframe.setAttribute("allow", "fullscreen");
+          // Modified openGame function
+          function openGame(url) {
+              var win = window.open();
+              var iframe = win.document.createElement('iframe');
+              iframe.style.position = "absolute";
+              iframe.style.top = "0";
+              iframe.style.left = "0";
+              iframe.style.width = "100%";
+              iframe.style.height = "100%";
+              iframe.style.border = "none";
+              iframe.src = url;
  
-             win.document.body.appendChild(iframe);
-         }
-     </script>
-  </body>
+              // Set allowfullscreen attribute and allow fullscreen access
+              iframe.setAttribute("allowfullscreen", "true");
+              iframe.setAttribute("allow", "fullscreen");
  
-  <!-- 100% privacy-first analytics -->
-  <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-  </html>
+              win.document.body.appendChild(iframe);
+          }
+      </script>
+   </body>
+ 
+   <!-- 100% privacy-first analytics -->
+   <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+   </html>
