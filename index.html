@@ -120,6 +120,29 @@
          .start-button:hover {
              background-color: #73a9ff; /* Button hover color */
          }
+      /* Dropdown Styles */
+        .dropdown {
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            z-index: 1000;
+            width: 250px; /* Match input width */
+            max-height: 200px; /* Set max height for the dropdown */
+            overflow-y: auto; /* Allow scrolling if content overflows */
+            display: none; /* Hidden by default */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-item {
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f1f1f1; /* Change background on hover */
+        }
      </style>
  </head>
  <body>
@@ -167,9 +190,10 @@
              </div>
          </a>
          <div class="search-container">
-             <input type="text" class="search-input" id="searchInput" placeholder="Search games/apps..." oninput="filterGames()">
-         </div>
-     </div>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search games/apps..." oninput="filterGames()">
+            <div class="dropdown" id="dropdown"></div> 
+        </div>
+    </div>
  
      <div class="main"></div>
  
@@ -184,21 +208,65 @@
      <h2>Thanks to our partner, the CAP_PRIME owner.</h2>
  
      <script>
-         function filterGames() {
-             const input = document.getElementById('searchInput');
-             const filter = input.value.toLowerCase();
-             const gamesLinks = document.querySelectorAll('.nav-button');
- 
-             gamesLinks.forEach(link => {
-                 const text = link.textContent || link.innerText;
-                 if (text.toLowerCase().indexOf(filter) > -1) {
-                     link.style.display = ''; // Show the link
-                 } else {
-                     link.style.display = 'none'; // Hide the link
-                 }
-             });
-         }
-     </script>
+        const games = [
+            { name: "Polytrack", url: "https://www.kodub.com/apps/polytrack", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/kuh89ewfu3whuiwfg.png" },
+            { name: "Bloxd.io", url: "https://bloxd.io/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/Bloxd.io_Logo.jpeg" },
+            { name: "Minecraft Java", url: "https://mcraft.fun", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/01a979c6afaf94ff03a9c65b0135aedd.png" },
+            { name: "Pokemon TCG Sim", url: "https://pokemonsim.com/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/Screenshot%202025-03-07%2012.00.46%20PM.png" },
+            { name: "Monkey Mart", url: "https://monkeymart.one/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/kuhfew.png" },
+            { name: "Space Waves", url: "https://spacewaves.io/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/space-waves.jpg" },
+            { name: "Funny Shooter 2", url: "https://classroomjq.github.io/funny-shooter-2/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/Funny-Shooter-2.jpg" },
+            { name: "Rocket Bot Royale", url: "https://rocketbotroyale2.winterpixel.io/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/Screenshot%202025-03-07%2012.42.51%20PM.png" },
+            // Add all other games in a similar format...
+            { name: "Granny", url: "https://thebackroomsgame.github.io/granny", img: "https://assets.onecompiler.app/4388fmqsk/43atnntca/Screenshot%202025-03-04%209.19.37%20AM-modified.png" }
+        ];
+
+        function filterGames() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const dropdown = document.getElementById('dropdown');
+
+            // Clear previous results
+            dropdown.innerHTML = '';
+
+            if (input) {
+                const filteredGames = games.filter(game => game.name.toLowerCase().includes(input));
+
+                if (filteredGames.length > 0) {
+                    filteredGames.forEach(game => {
+                        const item = document.createElement('div');
+                        item.className = 'dropdown-item';
+                        item.innerHTML = `<img src="${game.img}" alt="${game.name}" class="button-icon">${game.name}`;
+                        item.onclick = () => openGame(game.url); 
+                        dropdown.appendChild(item);
+                    });
+                    dropdown.style.display = 'block'; 
+                } else {
+                    dropdown.style.display = 'none'; 
+                }
+            } else {
+                dropdown.style.display = 'none'; 
+            }
+        }
+
+        // Modified openGame function
+        function openGame(url) {
+            var win = window.open();
+            var iframe = win.document.createElement('iframe');
+            iframe.style.position = "absolute";
+            iframe.style.top = "0";
+            iframe.style.left = "0";
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+            iframe.src = url;
+
+            // Set allowfullscreen attribute and allow fullscreen access
+            iframe.setAttribute("allowfullscreen", "true");
+            iframe.setAttribute("allow", "fullscreen");
+
+            win.document.body.appendChild(iframe);
+        }
+    </script>
  </body>
  
  <!-- 100% privacy-first analytics -->
