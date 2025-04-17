@@ -76,6 +76,18 @@
             transform: translateX(0); /* Move text back to its normal position */
         }
 
+        .search-container {
+            margin-left: auto; /* Push the search bar to the right */
+            margin-right: 20px; /* Space from the right edge */
+        }
+
+        .search-input {
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            outline: none; /* Remove outline on focus */
+        }
+
         /* Extra space for content below the fixed navbar */
         body {
             margin-top: 100px; /* Adjust this value based on navbar height */
@@ -149,6 +161,9 @@
                 <span class="text">Settings</span>
             </div>
         </a>
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search games/apps..." oninput="filterGames()">
+        </div>
     </div>
 
     <div class="main"></div>
@@ -164,7 +179,20 @@
     <h2>Thanks to our partner, the CAP_PRIME owner.</h2>
 
     <script>
-        // Any additional scripts can go here
+        function filterGames() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const gamesLinks = document.querySelectorAll('.nav-button');
+
+            gamesLinks.forEach(link => {
+                const text = link.textContent || link.innerText;
+                if (text.toLowerCase().indexOf(filter) > -1) {
+                    link.style.display = ''; // Show the link
+                } else {
+                    link.style.display = 'none'; // Hide the link
+                }
+            });
+        }
     </script>
 </body>
 
