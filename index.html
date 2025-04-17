@@ -77,15 +77,18 @@
         }
 
         .search-container {
-            margin-left: auto; /* Push the search bar to the right */
+            display: flex; /* Use flex to align horizontally */
+            align-items: center; /* Vertically center */
             margin-right: 20px; /* Space from the right edge */
         }
 
         .search-input {
-            padding: 5px;
+            padding: 10px; /* Increased padding for better touch target */
             border: none;
             border-radius: 5px;
             outline: none; /* Remove outline on focus */
+            font-size: 16px; /* Increase font size for better visibility */
+            width: 250px; /* Set a fixed width for the search box */
         }
 
         /* Extra space for content below the fixed navbar */
