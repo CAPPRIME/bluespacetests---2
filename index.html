@@ -136,18 +136,31 @@
               box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
               margin-top: 5px; /* Space between the dropdown and search input */
           }
-
-          .dropdown img {
-              width: 30px; /* Match input width */
-              height: 30px;
-          }
  
           .dropdown-item {
               padding: 10px;
               cursor: pointer;
               display: flex;
-              align-items: center;
-              margin-top: 50px;
+              align-items: center; /* Ensure vertical centering */
+          }
+         
+         .dropdown-item img {
+              width: 30px;  /* Match your requirement */
+              height: 30px; /* Match your requirement */
+              margin-right: 10px; /* Adjust spacing between image and text */
+              /* Remove any bottom margin to align with text */
+          }
+         
+         .dropdown-item span {
+              line-height: 30px; /* Set this to match the image height */
+              margin: 0; /* Remove default margins */
+              font-size: 16px; /* Adjust font size as needed */
+          }
+         
+         /* If you want to keep the image and text together */
+         .dropdown-item div {
+              display: flex;
+              align-items: center; /* Vertical align center */
           }
  
           .dropdown-item:hover {
@@ -232,31 +245,45 @@
           ];
  
           function filterGames() {
-              const input = document.getElementById('searchInput').value.toLowerCase();
-              const dropdown = document.getElementById('dropdown');
- 
-              // Clear previous results
-              dropdown.innerHTML = '';
- 
-              if (input) {
-                  const filteredGames = games.filter(game => game.name.toLowerCase().includes(input));
- 
-                  if (filteredGames.length > 0) {
-                      filteredGames.forEach(game => {
-                          const item = document.createElement('div');
-                          item.className = 'dropdown-item';
-                          item.innerHTML = `<img src="${game.img}" alt="${game.name}" class="button-icon">${game.name}`;
-                          item.onclick = () => openGame(game.url); 
-                          dropdown.appendChild(item);
-                      });
-                      dropdown.style.display = 'block'; 
-                  } else {
-                      dropdown.style.display = 'none'; 
-                  }
-              } else {
-                  dropdown.style.display = 'none'; 
-              }
-          }
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const dropdown = document.getElementById('dropdown');
+
+            // Clear previous results
+            dropdown.innerHTML = '';
+
+            if (input) {
+                const filteredGames = games.filter(game => game.name.toLowerCase().includes(input));
+
+                if (filteredGames.length > 0) {
+                    filteredGames.forEach(game => {
+                        const item = document.createElement('div');
+                        item.className = 'dropdown-item';
+
+                        // Create image element
+                        const img = document.createElement('img');
+                        img.src = game.img;
+                        img.alt = game.name;
+
+                        // Create text element
+                        const text = document.createElement('span');
+                        text.innerText = game.name; // Text for the game name
+
+                        // Assemble item
+                        item.appendChild(img); // Append the image
+                        item.appendChild(text); // Append the text
+                        
+                        // Set click event
+                        item.onclick = () => openGame(game.url);
+                        dropdown.appendChild(item);
+                    });
+                    dropdown.style.display = 'block'; 
+                } else {
+                    dropdown.style.display = 'none'; 
+                }
+            } else {
+                dropdown.style.display = 'none'; 
+            }
+        }
  
           // Modified openGame function
           function openGame(url) {
