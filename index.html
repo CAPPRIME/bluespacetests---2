@@ -75,24 +75,7 @@
              opacity: 1; /* Show the text on hover */
              transform: translateX(0); /* Move text back to its normal position */
          }
- 
-         .search-container {
-             margin-left: auto; /* Push the search bar to the right */
-             display: flex; /* Use flex to align horizontally */
-             align-items: center; /* Vertically center */
-             margin-right: 20px; /* Space from the right edge */
-         }
- 
-         .search-input {
-             padding: 5px;
-             padding: 10px; /* Increased padding for better touch target */
-             border: none;
-             border-radius: 5px;
-             outline: none; /* Remove outline on focus */
-             font-size: 16px; /* Increase font size for better visibility */
-             width: 250px; /* Set a fixed width for the search box */
-         }
- 
+
          /* Extra space for content below the fixed navbar */
          body {
              margin-top: 100px; /* Adjust this value based on navbar height */
@@ -121,12 +104,17 @@
              background-color: #73a9ff; /* Button hover color */
          }
       /* Dropdown Styles */
+        .search-container {
+            position: relative; /* Ensure the dropdown is absolute within this container */
+            width: 250px; /* Set the width to match the input */
+        }
+
         .dropdown {
-            position: absolute;
+            position: absolute; /* Position the dropdown absolutely */
             background-color: white;
             border: 1px solid #ccc;
             z-index: 1000;
-            width: 250px; /* Match input width */
+            width: 100%; /* Match input width */
             max-height: 200px; /* Set max height for the dropdown */
             overflow-y: auto; /* Allow scrolling if content overflows */
             display: none; /* Hidden by default */
