@@ -166,6 +166,22 @@
           .dropdown-item:hover {
               background-color: #454545; /* Change background on hover */
           }
+          :root {
+            --background-color: #000;
+            --text-color: #ffffff;
+            --link-hover-color: #0074ff; /* Blue */
+            --image-outline-color: #0045ff; /* Blue */
+            --header-active-background-color: rgba(0, 76, 255, 0.55); /* Blue */
+        }
+
+        .typewrite {
+            color: var(--link-hover-color);
+            filter: drop-shadow(0 0 2px var(--image-outline-color)) drop-shadow(0 0 20px var(--image-outline-color));
+        }
+
+        .typewrite > .wrap {
+            border-right: 0.06em solid var(--header-active-background-color);
+        }
        </style>
    </head>
    <body>
@@ -219,18 +235,76 @@
       </div>
  
        <div class="main"></div>
- 
-       <h1>Unblocked Games Plus - Netlify Edition</h1>
- 
-       <button class="start-button" onclick="window.location.href = 'https://bluespace118.vercel.app/games.html';"><b>Start Playing!</b></button>
- 
-       <button class="start-button" onclick="window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSfgADqtFaOPrWkNWXOOTaNZXERyIL2Nmqwb0RrP7yBMGeHVSg/viewform?usp=header';"><b>Request Games</b></button>
- 
-       <h2>New Update! GoGuardian can't see the games now! Bug fixes and new games!</h2>
- 
-       <h2>Thanks to our partner, the CAP_PRIME owner.</h2>
- 
-       <script>
+
+    <h1>
+        <span class="typewrite" data-period="2000" data-type='["Welcom to BlueSpace.","Unblocked Games Plus - Netlify Edition.","Start your Unblocked journey today.","Made by BlueCreations.","With help from CAP.","I wike tortles."]'>
+            <span class="wrap"></span>
+        </span>
+    </h1>
+
+    <button class="start-button" onclick="window.location.href = 'https://bluespace118.vercel.app/games.html';"><b>Start Playing!</b></button>
+    
+    <button class="start-button" onclick="launchab()"><b>Launch in A:B Cloak</b></button>   
+      
+    <button class="start-button" onclick="window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSfgADqtFaOPrWkNWXOOTaNZXERyIL2Nmqwb0RrP7yBMGeHVSg/viewform?usp=header';"><b>Request Games!</b></button>
+   
+    <h2>New Update! More Games! New UI!</h2>
+    <h2>Thanks to CAP.</h2>
+
+    <script>
+        // Typewriting effect (CAP)
+        class TxtType {
+            constructor(el, toRotate, period) {
+                this.toRotate = toRotate;
+                this.el = el;
+                this.loopNum = 0;
+                this.period = parseInt(period, 10) || 2000;
+                this.txt = '';
+                this.tick();
+                this.isDeleting = false;
+            }
+
+            tick() {
+                const i = this.loopNum % this.toRotate.length;
+                const fullTxt = this.toRotate[i];
+
+                if (this.isDeleting) {
+                    this.txt = fullTxt.substring(0, this.txt.length - 1);
+                } else {
+                    this.txt = fullTxt.substring(0, this.txt.length + 1);
+                }
+
+                this.el.innerHTML = `<span class="wrap">${this.txt}</span>`;
+
+                let delta = 200 - Math.random() * 100;
+
+                if (this.isDeleting) {
+                    delta /= 2;
+                }
+
+                if (!this.isDeleting && this.txt === fullTxt) {
+                    delta = this.period;
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                    this.isDeleting = false;
+                    this.loopNum++;
+                    delta = 500;
+                }
+
+                setTimeout(() => this.tick(), delta);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const elements = document.getElementsByClassName('typewrite');
+            for (let i = 0; i < elements.length; i++) {
+                const toRotate = elements[i].getAttribute('data-type');
+                const period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new TxtType(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+        });
           const games = [
               { name: "Polytrack", url: "https://www.kodub.com/apps/polytrack", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/kuh89ewfu3whuiwfg.png" },
               { name: "Bloxd.io", url: "https://bloxd.io/", img: "https://assets.onecompiler.app/4388fmqsk/43b522hn9/Bloxd.io_Logo.jpeg" },
@@ -303,6 +377,21 @@
  
               win.document.body.appendChild(iframe);
           }
+           // Lanch abount blank, and replace with canvas (CAP)
+          function launchab() {
+  const tab = window.open('about:blank', '_blank')
+  const iframe = tab.document.createElement('iframe')
+  const stl = iframe.style
+  stl.border = stl.outline = 'none'
+  stl.width = '100vw'
+  stl.height = '100vh'
+  stl.position = 'fixed'
+  stl.left = stl.right = stl.top = stl.bottom = '0'
+  iframe.src = self.location
+  tab.document.body.appendChild(iframe)
+  window.parent.window.location.replace(localStorage.getItem('panicurl') || 'https://springbranchisd.instructure.com/')
+}
+
       </script>
    </body>
  
