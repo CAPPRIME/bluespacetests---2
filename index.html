@@ -105,10 +105,9 @@
            }
  
            .start-button {
-               background-color: #5350fa; /* Button background color */
+               background-color: rgba(0, 76, 255, 0.80);
                border: none;
                color: white;
-               padding: 15px 30px; /* Increase padding for a larger button */
                text-decoration: none;
                display: inline-flex; /* Use flex on button to align items */
                align-items: center; /* Center items */
@@ -116,11 +115,17 @@
                cursor: pointer;
                margin-bottom: 20px; /* Space below the button */
                transition: background-color 0.3s;
-               font-size: 1.5em; /* Increase font size for better visibility */
-           }
+               font-size: 1.5em;
+               padding: 8px 15px;
+               border: none;
+               border-radius: 7px;   
+               transition: 0.4s all;
+            }
+          
  
            .start-button:hover {
-               background-color: #73a9ff; /* Button hover color */
+               filter: brightness(80%);
+               cursor: pointer;
            }
         /* Dropdown Styles */
           .dropdown {
